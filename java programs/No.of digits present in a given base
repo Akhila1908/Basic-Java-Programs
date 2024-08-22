@@ -1,0 +1,13 @@
+ 
+Example: 
+      6-110=3 digits (Binary digits)
+      8-1000=4 digits
+
+public class Main{
+    public static void main(String[] args){
+       int n=34567;
+       int base=10;
+    int ans=(int)((Math.log(n))/(Math.log (base)))+1;
+        System.out.print(ans);
+    }
+}
