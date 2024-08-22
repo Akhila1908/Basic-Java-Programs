@@ -1,0 +1,11 @@
+
+class Solution {
+    public int mySqrt(int x) {
+        int temp,sqrt;
+        do{
+        temp=x/2;
+       sqrt=(temp+(x/temp))/2;
+        }while((temp-sqrt)!=0);
+        return sqrt;
+    }
+}
