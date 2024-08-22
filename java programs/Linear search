@@ -1,0 +1,21 @@
+ 
+import java.util.*;
+public class Main{
+    public static void main(String args[]) {
+Scanner s=new Scanner(System.in);
+int[] a=new int[5];
+for(int i=0;i<a.length;i++){
+    a[i]=s.nextInt();
+}
+int key=s.nextInt();     System.out.println(linear(a,key,0));
+            }
+       public static int linear(int[] a,int key,int i) {
+        if(i==a.length){
+            return 0;
+        }
+           if(a[i]==key){
+               return i;
+           }
+                  return linear(a,key,i+1);
+             }
+}
