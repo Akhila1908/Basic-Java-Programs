@@ -1,0 +1,31 @@
+//Time complexity-O(sqrt(n))
+
+public class Main{
+    public static void main(String[] args){
+       int n=20;
+        factors(n);
+    }
+    public static void factors(int n) {
+     for(int i=1;i<Math.sqrt(n);i++){
+           if(n%i==0){
+    System.out.print(i+" "+(n/i)+" ");
+    }
+       }
+    }
+}
+
+// Time complexity-O(n)
+
+public class Main{
+    public static void main(String[] args){
+       int n=20;
+        factors(n);
+    }
+    public static void factors(int n) {
+       for(int i=1;i<n;i++){
+           if(n%i==0){
+         System.out.print(i+" ");
+     }
+       }
+    }
+}
