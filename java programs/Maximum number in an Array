@@ -1,0 +1,21 @@
+
+import java.util.*;
+ public class Main {
+  public static void main(String[] args){
+      Scanner s=new Scanner(System.in);
+        int[] arr=new int[5];
+    for(int i=0;i<arr.length;i++){
+           arr[i]=s.nextInt();
+                        }
+ System.out.println(max(arr));
+                    }
+     public static int max(int[] arr){
+         int i=0;
+         int max=i;
+         for(i=0;i<arr.length;i++){
+          if(arr[i]>max)
+            max=arr[i];
+            }
+            return max;
+        }
+        }
