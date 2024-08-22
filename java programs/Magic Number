@@ -1,0 +1,24 @@
+  
+(Binary digit)
+        ! 
+1=001->5;
+2=10->5*5=25;
+3=11->5+5*5=30;
+4=100->0+0+(5*5*5)=125;
+5=101->5+0+(5*5*5)=130;
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+  Scanner s=newScanner(System.in);
+       int n=s.nextInt();
+       int base=5;
+       int ans=0;
+   while(n>0){
+           int last=n&1;
+           n=n>>1;
+                ans +=last*base;
+           base=base*5;
+       }
+        System.out.print(ans);
+    }
