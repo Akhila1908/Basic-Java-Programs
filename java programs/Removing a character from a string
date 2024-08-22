@@ -1,0 +1,23 @@
+
+      import java.util.*;
+class Stream {
+    public static void main(String[] args) {
+     System.out.println(remove("ahbaccadaadf"));
+    }
+    public static String remove(String up) {
+        return removehelper("", up);
+    }
+    public static String removehelper(String p,String up){
+        if(up.isEmpty()){
+                        return p;
+        }
+        char ch=up.charAt(0);
+        if(ch=='a'){
+         return  removehelper(p,up.substring(1)); 
+        }
+        else{
+ return    removehelper(p+ch,up.substring(1)); 
+        }
+    }
+}
+    
