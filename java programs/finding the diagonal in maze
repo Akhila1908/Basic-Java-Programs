@@ -32,14 +32,14 @@ public static void position(String p,int row,int col){
     }
 ArrayList<String>list=new ArrayList<>();
 if(row>1&&col>1){
-list.addAll(pathset(p+"V",row-1,col-1));
+list.addAll(pathset(p+"D",row-1,col-1));
 // D= Diagonal
  }
  if(row>1){
-     list.addAll(pathset(p+"D",row-1,col)); // D=down side
+     list.addAll(pathset(p+"V",row-1,col)); // V = Vertical
  }
  if(col>1){
-     list.addAll(pathset(p+"R",row,col-1));   // R= Right side
+     list.addAll(pathset(p+"H",row,col-1));   // H =Horizontal
  }
 return list;
 }
