@@ -32,10 +32,10 @@ public static void position(String p,int row,int col){
     }
 ArrayList<String>list=new ArrayList<>();
  if(row>1){
-     list.addAll(pathset(p+"D",row-1,col));
+     list.addAll(pathset(p+"D",row-1,col)); // D=down side
  }
  if(col>1){
-     list.addAll(pathset(p+"R",row,col-1));
+     list.addAll(pathset(p+"R",row,col-1));   // R= Right side
  }
 return list;
 }
