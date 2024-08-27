@@ -45,7 +45,7 @@ public static void pathRestrictions(String p,boolean[][] maze,int row,int col){
  System.out.println(p);
         return;
     }
- if(!maze[row][col]){
+ if(maze[row][col]==false){
     return;
  }
  if(row<maze.length-1){
