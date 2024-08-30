@@ -1,4 +1,4 @@
-     // Time complexity - O(N3*N!)  (n cube * n factorial)
+     // Time complexity - O(N3+N!)  (n cube + n factorial)
     // Space complexity -O(N*N)
 import java.util.*;
 public class HelloWorld {
