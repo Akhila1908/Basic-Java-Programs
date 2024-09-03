@@ -1,0 +1,70 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static int partition(int arr[], int st, int en){
+        
+        int pivot = arr[st];
+        int count = 0;
+        
+        for(int i=st+1; i<=en; i++){
+            if(arr[i] < pivot)
+                count++;
+        }
+        
+        //swap pivot to it's sorted position
+        int temp = arr[st];
+        arr[st] = arr[count];
+        arr[count] = temp;
+        
+        int i = st;
+        int j = count+1;
+        
+        //move all smaller elements than pivot to left and vice versa
+        while(i<count && j<=en){
+            
+            if(arr[i] < pivot)
+                i++;
+            else if(arr[j] >= piv)
+                j++;
+            else{
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        
+        
+        return st+count;
+        // pivot value = st+count;
+        
+    }
+    public static void quickSort(int arr[], int st, int en){
+        
+        if(st >= en)
+            return;
+        
+        int pivot = partition(arr,st,en);
+        
+        quickSort(arr,st,piv-1);
+        quickSort(arr,piv+1,en);
+    }
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        int arr[] = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        quickSort(arr,0,n-1);
+        
+        for(int i=0; i<n; i++){
+            System.out.print(arr[i] + " ");
+        }
+        
+    }
+}
