@@ -5,18 +5,18 @@ public class Solution {
     
     public static int partition(int arr[], int st, int en){
         
-        int pivot = arr[st];
+        int piv = arr[st];
         int count = 0;
         
         for(int i=st+1; i<=en; i++){
-            if(arr[i] < pivot)
+            if(arr[i] < piv)
                 count++;
         }
         
         //swap pivot to it's sorted position
         int temp = arr[st];
-        arr[st] = arr[count];
-        arr[count] = temp;
+        arr[st] = arr[st+count];
+        arr[st+count] = temp;
         
         int i = st;
         int j = count+1;
@@ -24,9 +24,9 @@ public class Solution {
         //move all smaller elements than pivot to left and vice versa
         while(i<count && j<=en){
             
-            if(arr[i] < pivot)
+            if(arr[i] < piv)
                 i++;
-            else if(arr[j] >= pivot)
+            else if(arr[j] >= piv)
                 j++;
             else{
                 temp = arr[i];
@@ -36,8 +36,8 @@ public class Solution {
         }
         
         
-        return st+count;
-        // pivot value = st+count;
+        return count;
+        
         
     }
     public static void quickSort(int arr[], int st, int en){
@@ -45,12 +45,13 @@ public class Solution {
         if(st >= en)
             return;
         
-        int pivot = partition(arr,st,en);
+        int piv = partition(arr,st,en);
         
-        quickSort(arr,st,pivot-1);
-        quickSort(arr,pivot+1,en);
+        quickSort(arr,st,piv-1);
+        quickSort(arr,piv+1,en);
     }
     public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
