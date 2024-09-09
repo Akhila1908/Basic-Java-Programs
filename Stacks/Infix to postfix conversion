@@ -10,7 +10,7 @@ for(int i=0; i<infix.length(); i++){
             
           char ch = infix.charAt(i);
             
-            if(ch >= '0' && ch <='9')
+            if(ch >= '0' && ch <='9'||ch>='a'&&ch<='z')
                 exp += ch;
 else if(ch == '(')
                 stk.push(ch);
@@ -50,11 +50,7 @@ else if(ch == '(')
             stk.pop();
         }
         
-        String ans = "";
-     for(int i=0; i<exp.length(); i++){
-            ans += exp.charAt(i);
- }
-        System.out.println(ans);
+        System.out.println(exp);
             
     }
 }
