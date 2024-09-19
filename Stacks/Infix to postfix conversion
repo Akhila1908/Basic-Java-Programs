@@ -1,18 +1,18 @@
+import java.io.*;
 import java.util.*;
-public class Main{
-public static void main(String[] args) {
- Scanner s = new Scanner(System.in);
-       String infix=s.next();
-Stack<Character> stk = new Stack<>();
+                //ans:abcd^e-fgh*+^*+i-
+class Main {
+    public static void main(String[] args) {
+ String infix = "a+b*(c^d-e)^(f+g*h)-i";
+        Stack<Character> stk = new Stack<>();
         String exp = "";
-        
-for(int i=0; i<infix.length(); i++){
-            
-          char ch = infix.charAt(i);
-            
-            if(ch >= '0' && ch <='9'||ch>='a'&&ch<='z')
+
+        for (int i = 0; i < infix.length(); i++) {
+            char ch = infix.charAt(i);
+if (ch>=0&&ch<=9||ch>='a'&&ch<='z') {
                 exp += ch;
-else if(ch == '(')
+            } 
+   else if(ch == '(')
                 stk.push(ch);
             
   else if(ch == ')'){
@@ -21,36 +21,37 @@ else if(ch == '(')
                     stk.pop();
                 }
                 stk.pop();
-            }
-         else if(ch == '+' || ch == '-'){
- while(!stk.empty() && (stk.peek() == '*' || stk.peek() == '/')){
-                   exp += stk.peek();
-                    stk.pop();
+            }        
+    // If the character is an operator
+else if (ch == '+' || ch == '-' || ch == '*' || ch == '/'||ch=='^') {
+while (!stk.isEmpty() && precedence(stk.peek()) >= precedence(ch)) {
+                    exp += stk.pop(); // Pop from stack to output
                 }
-                stk.push(ch);
-            }
-     else if(ch == '+' || ch == '-'){
- while(!stk.empty() && (stk.peek() == '+' || stk.peek() == '+')){
-                   exp += stk.peek();
-                    stk.pop();
-                }
-                stk.push(ch);
-            } 
-             else if(ch == '*' || ch == '/'){
- while(!stk.empty() && (stk.peek() == '*' || stk.peek() == '/')){
-                   exp += stk.peek();
-                    stk.pop();
-                }
-                stk.push(ch);
+                stk.push(ch); // Push the current operator onto the stack
             }
         }
-        
-        while(!stk.empty()){
-            exp += stk.peek();
-            stk.pop();
+
+        // Pop all the remaining operators in the stack
+        while (!stk.isEmpty()) {
+            exp += stk.pop();
         }
-        
-        System.out.println(exp);
-            
+
+        System.out.println(exp); // Output the postfix expression
+    }
+
+    // Method to define precedence of operators
+    private static int precedence(char op) {
+        switch (op) {
+            case '+':
+            case '-':
+                return 1;
+            case '*':
+            case '/':
+                return 2;
+                case '^':
+                    return 3;
+            default:
+                return 0; // Non-operators
+        }
     }
 }
