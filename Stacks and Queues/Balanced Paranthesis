@@ -1,0 +1,45 @@
+// Time complexity = O(n)
+// Space Complexity = O(n)
+
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        String str=s.nextLine();
+        Stack<Character>stk=new Stack<>();
+       for(int i=0;i<str.length();i++){
+           char ch=str.charAt(i);
+           if(ch=='['||ch=='{'||ch=='('){
+               stk.push(ch);
+           }
+           else if(ch==')'){
+               if(stk.empty()||stk.peek()!='('){
+                     System.out.println("false");
+                  return;
+               }
+                   stk.pop();
+           }
+            else if(ch=='}'){
+               if(stk.empty()||stk.peek()!='{'){
+                 System.out.println("false");
+                   return ;
+               }
+                   stk.pop();
+           }
+            else if(ch==']'){
+               if(stk.empty()||stk.peek()!='['){
+                  System.out.println("false");
+                  return;
+               }
+          stk.pop();
+              }
+       }
+           if(!stk.empty()){
+               System.out.println("false");
+                 }
+        else{
+               System.out.println("true");
+           }
+        }
+}
