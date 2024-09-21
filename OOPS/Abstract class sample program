@@ -1,0 +1,31 @@
+public abstract class Parent {
+int age;
+
+    public Parent(int age) {
+        this.age = age;
+    }
+
+    abstract void carrer();
+    abstract void marriage();
+}
+class Son extends Parent{
+
+    Son(int age){
+       super(age);
+    }
+     @Override
+        void carrer(){
+        System.out.println("coder");
+    }
+    @Override
+    void marriage(){
+        System.out.println("sony");
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Son son=new Son(23);
+        son.carrer();
+        System.out.println(son.age);
+    }
+}
