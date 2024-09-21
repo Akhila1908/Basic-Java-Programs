@@ -1,0 +1,32 @@
+public interface Engine {
+    void brake();
+    void stop();
+    void acc();
+}
+interface Media{
+    void stop();
+}
+class Car implements Engine,Media {
+    @Override
+    public void brake(){
+        System.out.println("thiis is a brake");
+    }
+    @Override
+    public void stop(){
+        System.out.println("this is a stop");
+    }
+    @Override
+    public void acc(){
+        System.out.println("this is a acclerator");
+    }
+}
+class Main{
+    public static void main(String[] args) {
+//        Car car=new Car();
+//        car.brake();
+//        car.stop();
+//        car.acc();
+        Engine car=new Car();
+        car.stop();
+    }
+}
