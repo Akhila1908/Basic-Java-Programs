@@ -1,0 +1,29 @@
+import java.util.*;
+ public class Engine<T>{
+    T n;
+    Engine(T n){
+        this.n=n;
+    }
+    public void print(){
+        System.out.println(n);
+    }
+}
+class Tyre<E>{
+    E str;
+    public Tyre(E str) {
+        this.str = str;
+    }
+    public void print(){
+       System.out.println(str);
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Engine<Integer> e=new Engine<>(1);
+        e.print();
+        System.out.println(e.n);
+        Tyre<Double>t= new Tyre<>(1.23);
+        t.print();
+        System.out.println(t.str);
+    }
+}
