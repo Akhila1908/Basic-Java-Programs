@@ -1,0 +1,16 @@
+              
+import static com.rahul.a.b.Message.whatsapp;
+
+public class demo {
+    public static void main(String[] args) {
+        System.out.println("hello world");
+        whatsapp();
+    }
+}
+ class Message {
+
+    public static void whatsapp() {
+
+        System.out.println("this is akhilaaa");
+    }
+}
