@@ -1,0 +1,32 @@
+import java.io.Serializable;
+import java.util.*;
+  class Engine<T extends Number>{
+    T n;
+    Engine(T n){
+        this.n=n;
+    }
+    public void print(){
+        System.out.println(n);
+    }
+}
+class Tyre<E extends Serializable>{
+    E str;
+    public Tyre(E str) {
+        this.str = str;
+    }
+    public void print(){
+        System.out.println(str);
+    }
+}
+class Main{
+     public static void main(String[] args) {
+        Engine<Double> e=new Engine<>(1.27);
+        e.print();
+        //or
+        System.out.println(e.n);
+        Tyre<String>t= new Tyre<>("akhi");
+        t.print();
+        //or
+        System.out.println(t.str);
+    }
+}
