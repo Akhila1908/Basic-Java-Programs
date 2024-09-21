@@ -1,0 +1,21 @@
+class Engine{
+    Integer n;
+    Engine(Integer n){
+        this.n=n;
+    }
+}
+class Tyre{
+    String str;
+
+    public Tyre(String str) {
+        this.str = str;
+    }
+}
+class Main{
+    public static void main(String[] args) {
+        Engine e=new Engine(1);
+        Tyre t=new Tyre("akhi");
+        System.out.println(e.n);
+        System.out.println(t.str);
+    }
+}
