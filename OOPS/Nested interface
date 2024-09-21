@@ -1,0 +1,18 @@
+public class D {
+    //nested interfaces
+    public interface NestedInterface{
+        boolean isOdd(int num);
+    }
+}
+class C implements D.NestedInterface{
+    @Override
+    public boolean isOdd(int num){
+        return(num&1)==1;
+    }
+}
+class Plain{
+    public static void main(String[] args) {
+        C obj=new C();
+        System.out.println(obj.isOdd(6));
+    }
+}
