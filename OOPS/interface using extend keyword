@@ -1,0 +1,25 @@
+package com.akhila;
+
+public interface A {
+    void fun();
+}
+interface B extends A{
+    void greet();
+}
+  class Party implements B{
+      @Override
+      public void greet() {
+          System.out.println("this is greet");
+      }
+     @Override
+     public void fun() {
+         System.out.println("this is a fun");
+     }
+ }
+ class Main{
+     public static void main(String[] args) {
+         Party pt=new Party();
+       pt.greet();
+         pt.fun();
+     }
+ }
