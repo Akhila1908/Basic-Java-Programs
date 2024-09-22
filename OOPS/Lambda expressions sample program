@@ -1,0 +1,29 @@
+public interface car {
+    int drive();
+}
+class Audi implements car{
+    @Override
+   public int drive(){
+        System.out.print("driving audi speed : ");
+        return 80;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Audi a = new Audi(); //verbose code-writing the code pin to pin clearly
+        System.out.println(a.drive());
+        //anonymous function
+        car c1 = new car() {
+            public int drive() {
+                System.out.print("driving bmw speed: ");
+                return 100;
+            }
+        };
+        System.out.println(c1.drive());
+        //Lambda expression using anonymous function interfaces
+        car c2 = () -> 120;
+        System.out.print("driving car speed: ");
+        System.out.println(c2.drive());
+    }
+}
