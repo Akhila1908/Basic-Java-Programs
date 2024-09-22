@@ -1,0 +1,57 @@
+//interface 1
+
+public interface car {
+    void drive();
+}
+class Audi implements car{
+    @Override
+   public void drive(){
+        System.out.println("driving audi");
+    }
+}
+
+//interface 2
+
+interface animal{
+    void dog(int age,String name);
+}
+class puppy implements animal{
+    @Override
+    public void dog(int a,String n){
+        System.out.println("age: "+a+"name: "+n);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Audi a = new Audi(); //verbose code-writing the code pin to pin clearly
+        a.drive();
+        //anonymous function
+        car c1 = new car() {
+            public void drive() {
+                System.out.println("driving bmw");
+            }
+        };
+        c1.drive();
+        //Lambda expression using anonymous function interfaces
+        car c2 = () -> System.out.println("driving tata");
+        c2.drive();
+        car c3 = () -> {
+            int speed = 100;
+            if (speed >= 100)
+                System.out.println("car is moving with a high speed");
+            else
+                System.out.println("car is moving slowly");
+        };
+        c3.drive();
+
+
+        //using parameters in method
+
+        animal ani1 = (age, name) -> {
+            System.out.print("age: "+ age +" name: "+ name );
+        };
+        ani1.dog(12, "snoopy");
+       
+    }
+}
