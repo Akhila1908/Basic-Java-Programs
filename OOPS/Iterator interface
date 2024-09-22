@@ -1,0 +1,23 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> a=new ArrayList<>();
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        Iterator<Integer> i=a.iterator();
+
+            i.next();
+            i.remove();
+        System.out.println("after removing the element:"+a);
+        System.out.print("current elements are:");
+        while(i.hasNext()){
+            System.out.print(i.next()+" ");
+        }
+        System.out.println();
+        i.remove();
+        //it removed the last element because i.next() is pointing to the last element
+        System.out.println("after removing the elements:"+a);
+    }
+}
