@@ -1,3 +1,9 @@
+/*
+For both legacy classes and New classes,we used for iterating.
+New classes(Java 1.2) - Arraylist,Hashmap
+We cannot add elements but we can remove the elements.
+We cannot iterate the Map,but by a.KeySet().iterator(), a.entrySet().iterator() , a.Values().iterator() ;
+*/
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
