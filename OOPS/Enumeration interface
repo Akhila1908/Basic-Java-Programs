@@ -1,3 +1,9 @@
+/*
+Enumeration is introduced for iterating the legacy collection objects.
+legacy classes(Java 1.0) - Hashtable ,Stack, Vector, Dictionary, & Properties.
+ In Java, you cannot modify legacy classes.
+Enums in Java are final, meaning you cannot extend them.
+*/
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +16,7 @@ public class Main {
         while(e.hasMoreElements()){
             System.out.print(e.nextElement()+" ");
         }
+// This is the another way of accessing the elements,instead of for loop.
         System.out.println();
         System.out.println(v);
     }
