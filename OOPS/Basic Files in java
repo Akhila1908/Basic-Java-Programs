@@ -9,7 +9,7 @@ public class files {
         File f2=new File(f.getParent()+"/binarytree.java");
         //System.out.println(Arrays.toString(f.list()));
        // System.out.println(Arrays.toString(f.listFiles()));
-        System.out.println("name of directory:"+f1.getName());
+        System.out.println("name of directory:"+f.getName());
       System.out.println("name of directory:"+f2.getName());
 //        System.out.println("path of directory:"+f.getAbsolutePath());
        // System.out.println(f2.getParent());
