@@ -1,0 +1,36 @@
+/* when user want to handle the exception,then the process is called exception
+types : 1) checked exception(compile-time exception)
+        2) unchecked exception(run-time exception)
+* By default java program will stop running the program ,when an exception occurs
+*/
+
+import java.lang.*;
+import java.util.Arrays;
+
+public class Exception {
+    //throws keyword-it occurs at compile time and used in the method
+    //if throws exception is used then no need to use try,catch and these all
+    public static void main(String[] args) throws ArithmeticException {
+        System.out.println("program started");
+        int result=0;
+        try{
+        result=9 / 0;
+        }
+//        //if try and finally blocks are present then no need to execute the catch block
+        catch(ArithmeticException ae){
+            System.out.println(ae);
+            System.out.println(ae.getMessage());
+            System.out.println((Arrays.toString(ae.getStackTrace())));
+      //   throw ae;
+            //throw keyword-tells to java to stop running the program,it is used in catch block
+        }
+        //if exception happens or not ,whatever it may be ,
+        // finally block will execute definitely,but it is optional
+        //try block should be mandatory before performing finally
+        finally{
+            System.out.println("finally block");
+        }
+        System.out.println("result: "+result);
+        System.out.println("program ended");
+    }
+}
