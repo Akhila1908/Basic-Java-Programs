@@ -1,0 +1,27 @@
+import java.io.*;
+import java.io.BufferedReader;
+import java.util.*;
+public class textfiles {
+    public static void main(String[] args) throws IOException {
+        File file =new File("./listiterator.txt");
+        if(!file.exists()) {
+            System.out.println(file.createNewFile());
+        }
+        FileReader fr=new FileReader(file);
+        BufferedReader br=new BufferedReader(fr);
+        //or
+     FileInputStream fis=new FileInputStream(file);
+     InputStreamReader isr= new InputStreamReader(fis);
+        BufferedReader brr=new BufferedReader(isr);
+      String text;
+        while((text=br.readLine())!=null){
+            System.out.println(text);
+        }
+        fr.close();
+       fis.close();//end of input stream
+        isr.close();
+        brr.close();
+        br.close();
+
+    }
+}
