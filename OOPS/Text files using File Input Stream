@@ -10,6 +10,10 @@ public class textfiles {
             System.out.println(file.createNewFile());
         }
         FileInputStream fis=new FileInputStream(file);
+        FileReader fr=new FileReader(file);
+//           or
+        FileReader fir=new FileReader(fis);
+// file reader has same properties as file input stream
 //        System.out.println(fis.read());//it only reads a single character at a time
 //returns ascii value of first letter,if it is read the first letter then again it will not return it,it goes to next
 //        System.out.println((char)fis.read());
