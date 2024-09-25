@@ -1,0 +1,41 @@
+import java.io.*;
+import java.io.BufferedReader;
+import java.util.*;
+public class textfiles {
+    // Throwable exception specifies all type of exception and no need specify other exceptions
+    public static void main(String[] args) throws Throwable {
+        File file =new File("./listiterator.txt");
+     // The parameters we passed into the try block are resources
+        // if we pass the resources into try block and no need to close fileReader & Buffer
+        try( // AutoClosable
+        FileReader fr=new FileReader(file);
+        BufferedReader bw=new BufferedReader(fr);
+        )
+        {
+            int result=7/0;
+            int[] arr={1,2};
+            System.out.println(arr[2]);
+        }
+        //here the Exception specifies the all types of exception and no need to write other catch block
+//     catch(Exception ex){
+//            System.out.println("exception");
+//         System.exit(0);
+//        }
+        //we can write any number of catch blocks but only one try block
+//        catch(ArithmeticException ae){   // custom throw exceptions
+//          throw new ArithmeticException("hey stupid ,don't divide any number with zero");
+//        }
+        catch(ArithmeticException| ArrayIndexOutOfBoundsException | IOException a){
+            System.out.println("common exception");
+             System.exit(0);// Program will exit here, so nothing after this will execute
+        }
+        catch(NumberFormatException fn){
+            System.out.println("file is not found");
+        }
+        // basically finally block executes whether the exception is there or not
+        // but it will not execute when System.exit(0); occurs
+        finally{
+            System.out.println("finally");
+        }
+    }
+}
