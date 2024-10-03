@@ -1,0 +1,27 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int n = 1729;  
+        Magical(n);      
+        }
+    public static void Magical(int n) {
+        int sum = 0, rev = 0, temp = n;
+            while (temp > 0) {
+            int rem = temp % 10;
+            sum += rem;             
+            temp /= 10;         
+                }
+            temp = sum;  
+              while (temp > 0) {
+            int rem = temp % 10;
+            rev = rev * 10 + rem;       temp /= 10;
+        }
+          int ans = rev * sum;  
+        if (ans == n) {
+            System.out.println("magical");
+            
+        } 
+         else {
+            System.out.println("invalid"); }
+    }
+}
