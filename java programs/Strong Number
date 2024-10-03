@@ -1,0 +1,25 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int n = 145;  
+       Strong(n);     
+        }
+    public static void Strong(int n) {
+        int sum=0,original=n;
+        while(n>0){
+            int rem=n%10;
+         sum+=factorial(rem);
+         n/=10;
+        }
+        if (sum == original) 
+    System.out.println("strong number");
+         else  
+         System.out.println("invalid");
+    }
+    public static int factorial(int n){
+        if(n==0||n==1)
+        return 1;
+       int ans=n*factorial(n-1);
+       return ans;
+    }
+}
