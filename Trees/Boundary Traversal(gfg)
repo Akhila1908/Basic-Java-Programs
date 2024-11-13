@@ -1,0 +1,86 @@
+//Time Complexity : O(n)
+// from GFGS of tree boundary traversal
+
+
+import java.lang.*;
+import java.util.*;
+import java.util.ArrayList;
+
+class Solution{
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(5,
+                new TreeNode(3, new TreeNode(2), new TreeNode(4)),
+                new TreeNode(8, new TreeNode(7), new TreeNode(9)));
+
+        System.out.println(BoundaryTraversal(root));
+
+    }
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        // Constructors
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    public static List<Integer> BoundaryTraversal(TreeNode root) {
+        ArrayList<Integer> list=new ArrayList<>();
+        if(root==null)
+            return list;
+        list.add(root.val);
+        list.addAll(LeftSubTree(root.left));
+         list.addAll(LeafNodes(root.left));
+        list.addAll(LeafNodes(root.right));
+       list.addAll(RightSubTree(root.right));
+       return list;
+
+}
+public static List<Integer> LeftSubTree(TreeNode root){
+    ArrayList<Integer> list=new ArrayList<>();
+    if(root==null)
+        return list;
+    if (root.left != null || root.right != null) {
+        list.add(root.val);
+    }
+    if(root.left!=null){
+        list.addAll(LeftSubTree(root.left));
+    }
+    else if(root.right!=null){
+       list.addAll(LeftSubTree(root.right));
+    }
+    return list;
+}
+    public static List<Integer> LeafNodes(TreeNode root){
+        ArrayList<Integer> list=new ArrayList<>();
+        if(root==null)
+            return list;
+        if(root.left==null&&root.right==null){
+             list.add(root.val);}
+            list.addAll(LeafNodes(root.left));
+            list.addAll(LeafNodes(root.right));
+            return list;
+        }
+    public static List<Integer> RightSubTree(TreeNode root){
+        ArrayList<Integer> list=new ArrayList<>();
+        if(root==null)
+            return list;
+
+        if(root.right!=null){
+            list.addAll(RightSubTree(root.right));
+        if(root.left != null || root.right != null) {
+            list.add(root.val);
+        }}
+        else if(root.left!=null){
+            list.addAll(RightSubTree(root.left));
+        if(root.left != null || root.right != null) {
+            list.add(root.val);
+        }}
+        return list;
+    }
+}
