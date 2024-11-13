@@ -1,0 +1,43 @@
+import java.lang.*;
+class Solution{
+    static TreeNode result=null;
+    static TreeNode predecessor=null;
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(8,
+                new TreeNode(1, null, new TreeNode(4, new TreeNode(3), null)),
+                new TreeNode(9,null, new TreeNode(10)));
+        TreeNode succesor=kthSmallest(root,8);
+        System.out.println(succesor.val);
+
+    }
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        // Constructors
+        TreeNode() {}
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+    public static TreeNode kthSmallest(TreeNode root, int k) {
+        result=null;
+        predecessor=null;
+        inorder(root,k);
+        return result;
+    }
+    public static void inorder(TreeNode root,int k){
+        if(root==null)
+            return ;
+        inorder(root.left,k);
+        if(predecessor!=null&&predecessor.val==k){
+            result= root;
+            return;}
+        predecessor=root;
+        inorder(root.right,k);
+    }
+}
