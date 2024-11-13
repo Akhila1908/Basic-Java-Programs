@@ -1,0 +1,60 @@
+import java.util.*;
+
+class Solution {
+    public static void main(String[] args) {
+        // Correctly initialize the root node
+        Node root = new Node(10);
+        root.left = new Node(20);
+        root.right = new Node(30);
+        root.left.left = new Node(40);
+        root.left.right = new Node(60);
+
+        // Print the left view of the tree
+        System.out.println(leftView(root));
+    }
+    class Node {
+        int val;
+        Node left, right;
+
+        Node(int val) {
+            this.val = val;
+            left = right = null;
+        }
+
+    public static ArrayList<Integer> leftView(Node root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if (root == null) {
+            return result;  // Return empty list if the tree is empty
+        }
+
+        // Queue for level-order traversal (BFS)
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            int levelSize = queue.size();
+
+            // Traverse each level
+            for (int i = 0; i < levelSize; i++) {
+                Node currentNode = queue.poll();
+
+                // Add the left child first (for left view)
+                if (currentNode.left != null) {
+                    queue.add(currentNode.left);
+                }
+                // Add the right child second (for left view)
+                if (currentNode.right != null) {
+                    queue.add(currentNode.right);
+                }
+
+                // If we're at the first node of the current level, add it to the result
+                if (i == 0) {
+                    result.add(currentNode.val);
+                }
+            }
+        }
+
+        return result;
+    }
+}
+}
