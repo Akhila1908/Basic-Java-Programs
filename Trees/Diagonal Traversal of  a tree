@@ -1,0 +1,76 @@
+import java.util.*;
+
+class Solution {
+    public static void main(String[] args) {
+        // Create a sample tree
+        TreeNode root = new TreeNode(5,
+                new TreeNode(3, new TreeNode(2), new TreeNode(4)),
+                new TreeNode(8, new TreeNode(7), new TreeNode(9)));
+
+        // Perform diagonal traversal
+        DiagonalTraversal(root);
+    }
+
+    // TreeNode class definition
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        // Constructors
+        TreeNode(int val) { this.val = val; }
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    // Function for diagonal traversal
+    public static void DiagonalTraversal(TreeNode root) {
+        // If the tree is empty, return
+        if (root == null) return;
+
+        // A map to store diagonal levels and the list of nodes in each diagonal
+        HashMap<Integer, List<Integer>> map = new HashMap<>();
+
+        // Queue to perform BFS-like traversal; stores node and its diagonal level
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
+        Queue<Integer> diagonalQueue = new LinkedList<>();
+        nodeQueue.add(root);
+        diagonalQueue.add(0);  // Start with diagonal 0
+
+        // Perform BFS-like traversal
+        while (!nodeQueue.isEmpty()) {
+            TreeNode node = nodeQueue.poll();
+            int diagonal = diagonalQueue.poll();
+
+            // Add the node value to the corresponding diagonal in the map
+            if (!map.containsKey(diagonal)) {
+                map.put(diagonal, new ArrayList<>());
+            }
+            map.get(diagonal).add(node.val);
+
+            // If the node has a left child, it will go to the next diagonal (diagonal + 1)
+            if (node.left != null) {
+                nodeQueue.add(node.left);
+                diagonalQueue.add(diagonal + 1);
+            }
+
+            // If the node has a right child, it stays on the same diagonal
+            if (node.right != null) {
+                nodeQueue.add(node.right);
+                diagonalQueue.add(diagonal);
+            }
+        }
+
+        // Print out the diagonal traversal results by iterating over the map
+        for (int i = 0; i < map.size(); i++) {
+            List<Integer> diagonalValues = map.get(i);
+            for (Integer value : diagonalValues) {
+                System.out.print(value + " ");
+            }
+            
+        }
+    }
+}
