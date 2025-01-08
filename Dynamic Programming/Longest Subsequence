@@ -1,24 +1,39 @@
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        char x[]={'a','b','a','a','b','a'};
-        char y[]={'b','a','b','b','a','b'};
-        int result=longestSequence(x,y);
+        char x[] = {'a', 'b', 'a', 'a', 'b', 'a'};
+        char y[] = {'b', 'a', 'b', 'b', 'a', 'b'};
+        String result = longestSequence(x, y);
         System.out.println(result);
     }
-    public static int longestSequence(char[] x,char[] y){
-        int m=x.length;
-        int n=y.length;
-        int[][] dp=new int[m+1][n+1]; 
-          for(int i=1;i<=m;i++){
-        for(int j=1;j<=n ; j++){
-            if(x[i-1]==y[j-1]){
-          dp[i][j] = 1+ dp[i-1][j-1];   
-        }
-            else{
-    dp[i][j]= Math.max(dp[i][j-1],dp[i-1][j]) ;
+    public static String longestSequence(char[] x, char[] y) {
+        int m = x.length;
+        int n = y.length;
+        int[][] dp = new int[m + 1][n + 1];
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (x[i - 1] == y[j - 1]) {
+                    dp[i][j] = 1 + dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
             }
-        }}
-        return dp[m][n];
+        }
+        StringBuilder str = new StringBuilder();
+        int i = m, j = n;
+        while (i > 0 && j > 0) {
+            if (x[i - 1] == y[j - 1]) {
+                str.append(x[i - 1]);
+                i--;
+                j--;
+            } else if (dp[i - 1][j] > dp[i][j - 1]) {
+                i--;
+            } else {
+                j--;
+            }
+        }
+        str.reverse();
+        return "Length: " + dp[m][n] + "\nSequence: " + str.toString();
     }
 }
