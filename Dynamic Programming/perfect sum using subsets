@@ -1,0 +1,18 @@
+public class SubsetSumCount {
+    public static int countSubsetsWithSum(int[] arr, int target) {
+        int n = arr.length;
+        int[] dp = new int[target + 1]; 
+        dp[0] = 1;
+                for (int num : arr) {
+            for (int j = target; j >= num; j--) {
+                dp[j] += dp[j - num];
+            }
+        }
+                return dp[target];
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        int target = 4;
+        System.out.println("Number of subsets with sum " + target + ": " + countSubsetsWithSum(arr, target));
+    }
+}
