@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        int arr[]={1,5,6,9};
+        int w=11;
+        int result=coinChange(arr,w);
+        System.out.println(result);
+    }
+    public static int coinChange(int[] arr,int w){
+        int n=arr.length;
+        int[][] dp=new int[arr.length][w+1];
+        for(int i=0;i<n;i++){
+        dp[i][0]=0;
+         for (int j = 1; j <= w; j++) {
+// For the first row, only multiples of arr[0] can be formed
+            
+                dp[0][j] = j;
+        }
+            }
+          for(int i=1;i<n;i++){
+        for(int j=1;j<=w ; j++){
+            if(arr[i]>j){
+          dp[i][j] = dp[i-1][j];   
+        }
+            else{
+    dp[i][j]= Math.min(dp[i-1][j],1+dp[i][j-arr[i]]) ;
+            }
+        }}
+        return dp[n-1][w];
+    }
+}
