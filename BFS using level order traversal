@@ -3,12 +3,12 @@ import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-        // Construct the binary tree
+      
         TreeNode root = new TreeNode(8,
                 new TreeNode(1, null, new TreeNode(4, new TreeNode(3), null)),
                 new TreeNode(9, null, new TreeNode(10)));
 
-        // Call the bottomView function to print the bottom view of the tree
+      
         bfs(root);
     }
 
@@ -32,7 +32,7 @@ public class Solution {
         }
     }
 
-    // Function to print the bottom view of a binary tree
+   
     public static void bfs(TreeNode root) {
         if (root == null) return;
         Queue<TreeNode> queue=new LinkedList<>();
