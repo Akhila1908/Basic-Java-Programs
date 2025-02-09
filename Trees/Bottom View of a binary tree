@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Solution {
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(8,
+                new TreeNode(1, null, new TreeNode(4, new TreeNode(3), null)),
+                new TreeNode(9, null, new TreeNode(10)));
+        bottomView(root);
+    }
+
+    public static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        // Constructors
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    public static void bottomView(TreeNode root) {
+        Map<Integer, Integer> map = new TreeMap<>();
+        bottom(root, 0, 0, map);
+        for (Integer key : map.keySet()) {
+            System.out.print(map.get(key) + " ");
+        }
+    }
+
+    public static void bottom(TreeNode root, int distance, int level, Map<Integer, Integer> map) {
+        if (root == null)
+            return;
+        map.put(distance, root.val);
+        bottom(root.left, distance - 1, level + 1, map);
+        bottom(root.right, distance + 1, level + 1, map);
+    }
+}
