@@ -1,0 +1,100 @@
+GEN AI 
+
+- [x] GenAI is a type of Artificial Intelligence that creates new content based on what it has learned from existing content.
+- [ ] The generative AI process can take training code, labeled data, and unlabeled data of all data types and build a “foundation model”.
+- [ ] The foundation model can then generate new content.
+- [ ] It can generate text, code, images, audio, video, and more.
+- [x] generative language models are pattern-matching systems.
+- [x] They learn about patterns based on the data you provide.
+
+
+
+Machine learning, is a subfield of AI , that trains a model from input data.
+The trained model can make useful predictions .
+
+- [x] machine learning models are unsupervised and supervised ML models.
+supervised models,have labels.
+1. Labeled data is data that comes with a tag, like a name, a type, or a number.
+2. In Supervised Learning, the model learns from past examples to predict future values.
+3. The model tries to reduce this error until the predicted and actual values are closer together.
+
+unsupervised models have unlabeled data. 
+1. Unlabeled data is data that comes with no tag.
+2. Unsupervised problems are all about discovery, about looking at the raw data, and seeing if it naturally falls into groups
+
+
+Deep learning models typically have many layers of neurons, which allows them to learn more complex patterns than traditional machine learning models.
+
+1. Neural networks can use both labeled and unlabeled data.
+2. This is called semi-supervised learning.
+3. In semi-supervised learning, a neural network is trained on a small amount of labeled data and a large amount of unlabeled data.
+4. The labeled data helps the neural network to learn the basic concepts of the tasks, while the unlabeled data helps the neural network to generalize to new examples.
+
+Deep learning models (or machine learning models in general) can be divided into two types – generative and discriminative.
+
+Discriminative models are typically trained on a dataset of labeled data points,Once a discriminative model is trained, it can be used to predict the label for new data points.
+Generative models generate new content.
+
+
+Language model is an ai model that can predict the next word in the sequence.
+LLM’S don’t have any subjective experience , emotions or consciousness that we have , LLMS purely work based on the data they trained.
+Inside an LLM U will find a neural network containing a large no.of trillion parameters.
+
+LLM examples are :
+1.  GPT 3 or GPT 4  by chatgpt (generative pre )
+2. Palm 2 by google
+3. Llma by meta
+4. Gemini
+LLM uses another approach called Reinforcement learning with human feedback.
+
+Emmebbing is a numeric representation of a text in the form of a dats(vector) like words, sentences, images, or any other type of information, such that u can capture the meaning of that text and relationships in a high-dimensional space. 
+
+Vector database allows these embeddings and perform  efficient search on this embeddings.
+Benefits: 
+1. fast search ,
+ 2. optiimized storage.
+Semantic search means searching for meaning rather than just matching exact words or keywords. Internally it uses the concept of semantic search
+
+Cosine similarity is a metric used to measure the similarity between two vectors by calculating the cosine of the angle between them. Here's a clear explanation:
+Basic Definition:
+* Measures similarity between two non-zero vectors
+* Result ranges from -1 to 1
+    * 1 means vectors are identical
+    * 0 means vectors are perpendicular (completely different)
+    * -1 means vectors are opposite
+Formula:
+    
+cos(θ) = (A·B)/(||A||×||B||)
+
+Where:
+- A·B is the dot product of vectors
+- ||A|| and ||B|| are vector magnitudes
+
+Locality Sensitive Hashing (LSH) is a technique that hashes similar items to the same "bucket" with high probability, allowing for fast approximate nearest neighbor search in large-scale datasets. 
+This hashing function creating buckets of similar embeddings, within that buckets we can perform the individual search
+
+RAG (Retrieval-Augmented Generation) is a technique that enhances AI language models by combining their built-in knowledge with real-time information retrieved from an external knowledge base before generating responses.
+* Rag will create the vector database related to our provided database, which convert the text to vectors.
+Key components:
+1. Retrieval: Finding relevant information from a database
+2. Augmentation: Adding this information to the prompt
+3. Generation: Creating the response using both the model's knowledge and retrieved data
+Process :
+1. A query from the user and then it will go the database and retrieve the information 
+2. And this information is adding to the promo and giving it to the LLM
+3. The LLM will summarise the output.
+Purpose: To make AI responses more accurate, up-to-date, and verifiable by grounding them in specific source documents.
+Ex: take a question from the user and LLM will refer the database, and the LLM pull the answer from the database.
+
+TOOLS OF GEN AI:
+
+1. Lang chain is a python framework used to builds the gen ai applications using LLMS
+2. GPT 4 from the chatgpt 
+3. LLAMA 2 , 
+4. DALL-E , 
+5. Mistral 
+6. Stable Diffusion. 
+7. Hugging face bloom
+
+These can be commercial or open source models and 
+cloud services like Azure open ai service , Amazon bedrock.
