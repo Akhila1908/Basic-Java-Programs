@@ -1,0 +1,33 @@
+Agentic AI
+
+
+AI Agents - The LLMS calls tool call of the 3rd party API’S like TAVILY  ,which is a internet search and give the current data information to the LLMS and the LLMS trains on the current data through this API’S and provide the current data information to the users.
+
+Here TAVILY is an AI Agent.
+
+Agentic AI is designed for autonomous action, making decisions and taking actions to achieve specific goals independently.
+Ex : Self driving cars.
+
+In this agentic AI multiple AI Agents collaborate with each other.
+
+Frameworks:
+1) LangChain,
+ LangGraph - provides the granular level of changes , and it can be cyclic or directed graph
+2) Agno (formerly phidata) - we can easily create an agent
+3) CrewAI
+4) n8n - No code platform , by using the drag and drop we can create ai agents.
+5) Langflow - no code just drag and drop
+6)LangSmith - for debugging
+7)Autogen - by Microsoft
+8)Auto gram
+9)Auto GP2
+
+Agentic Ai Rag:
+
+Process :
+1. A query from the user 
+2. And then ,we need to create the agents , which stores the multiple vector databases,.
+3. Based on the query , the agent will take the decision from which database it should retrieve the context/information.
+4.  Agent will go the that vector database and retrieve the more accurate information .
+5. And this information is adding to the prompt and giving it to the LLM
+6. The LLM will summarise the output.
